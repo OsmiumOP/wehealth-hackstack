@@ -63,8 +63,8 @@ def apirequesthandler(request, age, gender,height, weight, ap_hi, ap_low, glucos
     try:
         result = classifier.predict([[age, gender, height, weight, ap_hi, ap_low, glucose, cholestrol, smoker, alcoholic, physicalact]])
         context = {
-            'result':result,
-            'accuracy': round(acc * 100, 2)
+            'result' : int(result[0]),
+            'accuracy': round(float(acc) * 100, 2)
         }
         return JsonResponse(context)
     except: 
