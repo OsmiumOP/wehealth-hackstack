@@ -43,7 +43,12 @@ def home(request):
             
             xd = classifier.predict([[entry.age, entry.gender, entry.height, entry.weight, entry.ap_hi, entry.ap_low, dict['glucose'], dict['cholestrol'], 0,0,0]])
             print(xd)
-            return HttpResponse(404)
+
+            context = {
+                'cardio' : xd[0]
+            }
+            
+            return render(request, 'index.html', context)
         except:
             return HttpResponse(404)
     else :

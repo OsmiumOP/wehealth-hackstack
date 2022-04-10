@@ -1,3 +1,5 @@
+import datetime
+from email.policy import default
 from statistics import mode
 from django.db import models
 
@@ -12,4 +14,4 @@ class TestReport(models.Model) :
     weight = models.IntegerField()
     ap_hi = models.IntegerField()
     ap_low = models.IntegerField()
-    
+    date = models.DateField(default=datetime.today)
