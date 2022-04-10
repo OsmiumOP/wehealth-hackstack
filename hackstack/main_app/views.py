@@ -44,8 +44,11 @@ def home(request):
             xd = classifier.predict([[entry.age, entry.gender, entry.height, entry.weight, entry.ap_hi, entry.ap_low, dict['glucose'], dict['cholestrol'], 0,0,0]])
             print(xd)
 
+            testEntries = TestReport.objects.filter(phone_num=dict['phone'])
+
             context = {
-                'cardio' : xd[0]
+                'cardio' : xd[0],
+                'entries' : testEntries
             }
 
             return render(request, 'table.html', context)

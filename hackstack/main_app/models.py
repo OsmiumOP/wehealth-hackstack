@@ -14,4 +14,4 @@ class TestReport(models.Model) :
     weight = models.IntegerField()
     ap_hi = models.IntegerField()
     ap_low = models.IntegerField()
-    date = models.DateField(default=datetime.today)
+    date = models.DateField(auto_now_add=True)

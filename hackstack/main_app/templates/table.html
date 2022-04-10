@@ -5,24 +5,42 @@
 <head>
   <meta charset="UTF-8">
   <title>CodePen - &lt;Table&gt; Responsive</title>
-  <link rel="stylesheet" href="{% 't_asset/style.css' %}">
+  <link rel="stylesheet" href="{% static 't_asset/style.css' %}">
 
 </head>
 <body>
 <!-- partial:index.partial.html -->
-<h1><span class="blue">&lt;</span>Table<span class="blue">&gt;</span> <span class="yellow">Responsive</pan></h1>
-<h2>Created with love by <a href="https://github.com/pablorgarcia" target="_blank">Pablo García</a></h2>
+{% if cardio %}
+	<h1> <span class="yellow">UN-SAFE!</span><br>Our System thinks you might be suffering from a Cardio-Vascular Disease. Please Visit a Doctor at the Earliest.</h1>
+{% else %}
+	<h1> <span class="yellow">SAFE!</span><br>Our System thinks you are not suffering from a Cardio-Vascular Disease.</h1>
+{% endif %}
+<h2>Project Created by : Harsh Bansal and Aryaman R. Sharma</h2>
 
 <table class="container">
 	<thead>
 		<tr>
-			<th><h1>Sites</h1></th>
-			<th><h1>Views</h1></th>
-			<th><h1>Clicks</h1></th>
-			<th><h1>Average</h1></th>
+			<th><h1>Date</h1></th>
+			<th><h1>Name</h1></th>
+			<th><h1>Age</h1></th>
+			<th><h1>Height</h1></th>
+			<th><h1>Weight</h1></th>
+			<th><h1>BP - High</h1></th>
+			<th><h1>BP - Low</h1></th>
 		</tr>
 	</thead>
 	<tbody>
+		{% for x in entries %}
+		<tr>
+			<td>{{x.date}}</td>
+			<td>{{x.name}}</td>
+			<td>{{x.age}}</td>
+			<td>{{x.height}}</td>
+			<td>{{x.weight}}</td>
+			<td>{{x.ap_hi}}</td>
+			<td>{{x.ap_low}}</td>
+		</tr>
+		{% endfor %}
 		<!-- <tr>
 			<td>Google</td>
 			<td>9518</td>
@@ -62,7 +80,7 @@
 	</tbody>
 </table>
 <!-- partial -->
-  <script  src="{% 't_asset/script.js' %}"></script>
+  <script  src="{% static 't_asset/script.js' %}"></script>
 
 </body>
 </html>
