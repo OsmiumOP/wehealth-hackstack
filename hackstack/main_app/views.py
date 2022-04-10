@@ -47,8 +47,8 @@ def home(request):
             context = {
                 'cardio' : xd[0]
             }
-            
-            return render(request, 'index.html', context)
+
+            return render(request, 'table.html', context)
         except:
             return HttpResponse(404)
     else :
